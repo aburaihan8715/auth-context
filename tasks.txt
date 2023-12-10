@@ -1,0 +1,27 @@
+
+=========== pending tasks===============
+- login with email link **
+- dark mode
+- admin only route
+
+
+
+
+
+
+=========== Tasks have been completed===============
+- create context for providing auth info
+- registration using email and password
+- logout implementation
+- update user profile
+- email verification
+- button loading spinner
+- make profile card
+- forget password
+- add eye for password
+- registration using google and github
+- phone authentication
+  ref-https://www.youtube.com/watch?v=IivlA4o5RkU&t=1292s
+- facebook auth is not working
+  ref-https://www.youtube.com/watch?v=kEfe9u5F_L0&t=404s
+
