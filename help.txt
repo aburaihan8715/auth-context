@@ -1,2 +1,25 @@
+
+## Auth context
+
+### =========references===========
+-tutorials
+
+
+
+### features/actions
+
+
+### technologies used
+
+
+### completed tasks
+
+
+### pending tasks
+
+
+
+
+### others
 // default demo user link
 https://i.ibb.co/nCCcPC7/demo-user.jpg

@@ -53,7 +53,7 @@ const UserAuthContextProvider = ({ children }) => {
     name = "unknown",
     photo = "https://i.ibb.co/nCCcPC7/demo-user.jpg",
   ) => {
-    return updateProfile(auth.currentUser, {
+    return updateProfile(user, {
       displayName: name,
       photoURL: photo,
     });
@@ -78,7 +78,7 @@ const UserAuthContextProvider = ({ children }) => {
 
   // email verification
   const emailVerification = () => {
-    return sendEmailVerification(auth.currentUser);
+    return sendEmailVerification(user);
   };
 
   // password reset email
@@ -96,7 +96,7 @@ const UserAuthContextProvider = ({ children }) => {
     return () => {
       return unsubscribe();
     };
-  }, []);
+  }, [user]);
 
   return (
     <UserAuthContext.Provider
