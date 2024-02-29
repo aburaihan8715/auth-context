@@ -21,6 +21,9 @@ export const UserAuthContext = createContext();
 const UserAuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
+  // TODO: temporary data
+  const role = "user";
+
   // create user using email and password
   const createUserUserUsingEmailAndPassword = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -96,7 +99,7 @@ const UserAuthContextProvider = ({ children }) => {
     return () => {
       return unsubscribe();
     };
-  }, [user]);
+  }, []);
 
   return (
     <UserAuthContext.Provider
@@ -113,6 +116,7 @@ const UserAuthContextProvider = ({ children }) => {
         setUpRecaptcha,
         emailVerification,
         passwordResetEmail,
+        role,
       }}
     >
       {children}

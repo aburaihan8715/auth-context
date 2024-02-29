@@ -16,6 +16,26 @@ const Header = () => {
       <li>
         <NavLink to="/blogs">Blogs</NavLink>
       </li>
+
+      <li>
+        <NavLink to="/protect">Protect</NavLink>
+      </li>
+
+      <li>
+        <NavLink to="/admin">Admin</NavLink>
+      </li>
+
+      <li>
+        <NavLink to="/user">User</NavLink>
+      </li>
+
+      <li>
+        <NavLink to="/instructor">Instructor</NavLink>
+      </li>
+
+      <li>
+        <NavLink to="/multiRole">Admin/Instructor</NavLink>
+      </li>
     </>
   );
 
@@ -31,7 +51,7 @@ const Header = () => {
           <label tabIndex={0} className="btn-ghost btn lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="w-5 h-5"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -46,20 +66,22 @@ const Header = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu-compact dropdown-content menu rounded-box mt-3 w-52 bg-base-100 p-2 shadow"
+            className="p-2 mt-3 shadow menu-compact dropdown-content menu rounded-box w-52 bg-base-100"
           >
             {menus}
           </ul>
         </div>
-        <a className="btn-ghost btn text-xl normal-case">ContextAuthPractice</a>
+        <Link to={`/`}>
+          <span className="text-2xl font-bold uppercase">AuthContext</span>
+        </Link>
       </div>
 
       {/* desktop nav */}
-      <div className="navbar-center hidden lg:flex ">
-        <ul className="menu menu-horizontal space-x-2 px-1">{menus}</ul>
+      <div className="hidden navbar-center lg:flex ">
+        <ul className="px-1 space-x-2 menu menu-horizontal">{menus}</ul>
       </div>
 
-      <div className="navbar-end space-x-2  ">
+      <div className="space-x-2 navbar-end ">
         {!user && (
           <div className="">
             <Link to="/login" className="btn-secondary btn">
@@ -69,10 +91,10 @@ const Header = () => {
         )}
 
         {user && (
-          <div className=" relative flex items-center gap-3 ">
+          <div className="relative flex items-center gap-3 ">
             <div
               onClick={() => setIsProfileOpen(!isProfileOpen)}
-              className="flex cursor-pointer items-center"
+              className="flex items-center cursor-pointer"
             >
               <div className="avatar">
                 <div className="w-10 rounded-full ring ring-secondary ring-offset-2 ring-offset-base-100">
@@ -99,21 +121,21 @@ export default Header;
 const ProfileCard = () => {
   const { user } = useUserAuth();
   return (
-    <div className="absolute right-10 top-16 w-60 rounded-md border bg-gradient-to-l from-purple-300 to-pink-300 px-6 py-4 text-center text-gray-50 shadow-md transition duration-100 hover:bg-gradient-to-r ">
+    <div className="absolute px-6 py-4 text-center transition duration-100 border rounded-md shadow-md right-10 top-16 w-60 bg-gradient-to-l from-purple-300 to-pink-300 text-gray-50 hover:bg-gradient-to-r ">
       <div className="space-y-2">
         <div className="flex justify-center">
           <img
-            className="rounded-full p-1 ring ring-gray-50"
+            className="p-1 rounded-full ring ring-gray-50"
             src={user?.photoURL}
             width={100}
             height={100}
             alt="profile"
           />
         </div>
-        <h4 className="border-b text-2xl font-semibold capitalize">
+        <h4 className="text-2xl font-semibold capitalize border-b">
           Name: {user?.displayName}
         </h4>
-        <div className="border-b font-semibold">
+        <div className="font-semibold border-b">
           Email: {user?.email ? user.email : "unknown"}
         </div>
         <div>

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useUserAuth } from "../hooks/useUserAuth";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const SocialLogin = () => {
+const SocialLogin = ({ from }) => {
+  const navigate = useNavigate();
   const {
     authenticationUsingGoogle,
     authenticationUsingGithub,
@@ -16,6 +17,7 @@ const SocialLogin = () => {
     try {
       await authenticationUsingGoogle();
       setSocialLoginError("");
+      navigate(from);
     } catch (error) {
       setSocialLoginError(error.message);
       console.error(error);
@@ -28,6 +30,7 @@ const SocialLogin = () => {
     try {
       await authenticationUsingGithub();
       setSocialLoginError("");
+      navigate(from);
     } catch (error) {
       setSocialLoginError(error.message);
       console.error(error);
@@ -40,6 +43,7 @@ const SocialLogin = () => {
     try {
       await authenticationUsingFacebook();
       setSocialLoginError("");
+      navigate(from);
     } catch (error) {
       setSocialLoginError(error.message);
       console.error(error);
@@ -56,7 +60,7 @@ const SocialLogin = () => {
             user && "cursor-not-allowed"
           }`}
         >
-          <span className="inline-block  rounded-md bg-white p-2">
+          <span className="inline-block p-2 bg-white rounded-md">
             <img
               className="rounded-full"
               src="/google.png"
@@ -65,7 +69,7 @@ const SocialLogin = () => {
               height={30}
             />
           </span>
-          <span className="flex flex-1 items-center justify-center self-stretch font-semibold uppercase text-white">
+          <span className="flex items-center self-stretch justify-center flex-1 font-semibold text-white uppercase">
             login with google
           </span>
         </button>
@@ -79,7 +83,7 @@ const SocialLogin = () => {
             user && "cursor-not-allowed"
           }`}
         >
-          <span className="inline-block rounded-md bg-white p-2">
+          <span className="inline-block p-2 bg-white rounded-md">
             <img
               className="rounded-full"
               src="/github.png"
@@ -88,7 +92,7 @@ const SocialLogin = () => {
               height={30}
             />
           </span>
-          <span className="flex flex-1 items-center justify-center self-stretch font-semibold uppercase text-white">
+          <span className="flex items-center self-stretch justify-center flex-1 font-semibold text-white uppercase">
             login with github
           </span>
         </button>
@@ -102,7 +106,7 @@ const SocialLogin = () => {
             user && "cursor-not-allowed"
           }`}
         >
-          <span className="inline-block rounded-md bg-white p-2">
+          <span className="inline-block p-2 bg-white rounded-md">
             <img
               className="rounded-full"
               src="/facebook.png"
@@ -111,7 +115,7 @@ const SocialLogin = () => {
               height={30}
             />
           </span>
-          <span className="flex flex-1 items-center justify-center self-stretch  font-semibold uppercase text-white">
+          <span className="flex items-center self-stretch justify-center flex-1 font-semibold text-white uppercase">
             login with facebook
           </span>
         </button>
@@ -121,7 +125,7 @@ const SocialLogin = () => {
       <div>
         <Link to="/phone-input">
           <button className="flex w-full items-center gap-1 rounded-md border border-[#06b6d4] bg-[#06b6d4]">
-            <span className="inline-block rounded-md bg-white p-2">
+            <span className="inline-block p-2 bg-white rounded-md">
               <img
                 className="rounded-full"
                 src="/call.jpg"
@@ -130,7 +134,7 @@ const SocialLogin = () => {
                 height={30}
               />
             </span>
-            <span className="flex flex-1 items-center justify-center self-stretch font-semibold uppercase text-white">
+            <span className="flex items-center self-stretch justify-center flex-1 font-semibold text-white uppercase">
               login with phone
             </span>
           </button>
@@ -141,7 +145,7 @@ const SocialLogin = () => {
       <div>
         <Link to="/email-link">
           <button className="flex w-full items-center gap-1 rounded-md border border-[#06b6d4] bg-[#06b6d4]">
-            <span className="inline-block rounded-md bg-white p-2">
+            <span className="inline-block p-2 bg-white rounded-md">
               <img
                 className="rounded-full"
                 src="/gmail.png"
@@ -150,7 +154,7 @@ const SocialLogin = () => {
                 height={30}
               />
             </span>
-            <span className="flex flex-1 items-center justify-center self-stretch font-semibold uppercase text-white">
+            <span className="flex items-center self-stretch justify-center flex-1 font-semibold text-white uppercase">
               login with email link
             </span>
           </button>
@@ -159,10 +163,10 @@ const SocialLogin = () => {
 
       {/* error message */}
       {socialLoginError && (
-        <div className="alert alert-error rounded-md">
+        <div className="rounded-md alert alert-error">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 shrink-0 stroke-current"
+            className="w-6 h-6 stroke-current shrink-0"
             fill="none"
             viewBox="0 0 24 24"
           >

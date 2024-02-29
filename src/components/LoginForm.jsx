@@ -49,10 +49,10 @@ const LoginForm = () => {
       <div className="">
         {/* error message */}
         {loginError && (
-          <div className="alert alert-error rounded-md">
+          <div className="rounded-md alert alert-error">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 shrink-0 stroke-current"
+              className="w-6 h-6 stroke-current shrink-0"
               fill="none"
               viewBox="0 0 24 24"
             >
@@ -74,7 +74,7 @@ const LoginForm = () => {
           <input
             type="email"
             placeholder="Enter email"
-            className="input-bordered input w-full"
+            className="w-full input-bordered input"
           />
         </div>
 
@@ -89,11 +89,11 @@ const LoginForm = () => {
               minLength="6"
               type={isVisible ? "text" : "password"}
               placeholder="Enter password (6-10) character"
-              className="input-bordered input w-full"
+              className="w-full input-bordered input"
             />
             <span
               onClick={() => setIsVisible(!isVisible)}
-              className="absolute right-6 top-1/2 -translate-y-1/2 cursor-pointer text-2xl"
+              className="absolute text-2xl -translate-y-1/2 cursor-pointer right-6 top-1/2"
             >
               {isVisible ? <BsEyeFill /> : <BsEyeSlashFill />}
             </span>
